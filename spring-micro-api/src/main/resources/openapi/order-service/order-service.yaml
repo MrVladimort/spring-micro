@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  version: '0.0.1'
+  title: Order API - OpenAPI 3.0
+  description: |-
+    This is a sample Library Server based on the OpenAPI 3.0 specification.  You can find out more about
+    Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the Library, we've switched to the design first approach!
+    You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+    That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+    
+    Some useful links:
+    - [The library repository](https://github.com/mrvladimort/spring-micro)
+    - [The source API definition for the library](https://github.com/mrvladimort/spring-micro/spring-micro-api/main/src/main/resources/openapi/order-service.yaml)
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: mrvladimort@gmail.com
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Development server
+tags:
+  - name: Order
+    description: Operations about book
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+
+paths:
+  /order:
+    post:
+      tags:
+        - Order
+      summary: Create order
+      operationId: createOrder
+      requestBody:
+        required: true
+        description: Create order body
+        content:
+          application/json:
+            schema:
+              $ref: "./order/CreateOrderRequest.yaml"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: './order/Order.yaml'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '../common/ApiError.yaml'
+        '401':
+          description: You are not authorized to view the resource
+          content:
+            application/json:
+              schema:
+                $ref: '../common/ApiError.yaml'
+        '403':
+          description: Accessing the resource you were trying to reach is forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '../common/ApiError.yaml'
+        '500':
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: '../common/ApiError.yaml'

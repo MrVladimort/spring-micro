@@ -1,0 +1,11 @@
+type: object
+properties:
+  itemId:
+    type: integer
+    description: Id of the item
+  count:
+    type: integer
+    description: Total count of items
+required:
+  - itemId
+  - count

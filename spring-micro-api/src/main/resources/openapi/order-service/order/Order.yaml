@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+  totalPrice:
+    type: integer
+    format: int32
+    description: firstname of author.
+  items:
+    type: array
+    items:
+      $ref: "../item/ItemWrapper.yaml"
+    description: lastname of author.
+required:
+  - id
+  - totalPrice
+  - items

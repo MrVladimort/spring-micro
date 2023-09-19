@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+  price:
+    type: integer
+    format: int32
+    description: Price of the item
+  name:
+    type: string
+required:
+  - price
+  - name

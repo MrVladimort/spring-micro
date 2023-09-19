@@ -1,0 +1,14 @@
+type: object
+properties:
+  item:
+    $ref: "./Item.yaml"
+  totalPrice:
+    type: integer
+    format: int32
+    description: Total price of the items
+  count:
+    type: integer
+    description: Total count of items
+required:
+  - totalPrice
+  - count
